@@ -30,7 +30,6 @@
       function sayHello(name){
         let elementExists = document.getElementById("welcome-text");
         let welcomeMsg = document.getElementById('welcome-message');
-        console.log(elementExists);
 
         if(elementExists === null) {
           let welcomeMsgText = document.createElement('h1');
@@ -45,7 +44,6 @@
       }
 
       let textColor = document.getElementById("text-color");
-      console.log(textColor);
       textColor.addEventListener("change", function(){
         setBodyAttr('text', this.options[this.selectedIndex].value);
       });
