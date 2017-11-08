@@ -17,16 +17,21 @@
         </select>
       </form>
       <form>
-        <input id="input-button" type="button" value="Say Hello!" onclick="sayHello('Rob')" />
+        <input id="input-button" type="button" value="Say Hello!"/>
         <div id="welcome-message"></div>
       </form>
     </div>
 
     <script type="application/javascript">
+
+      //ToDo - remove inline function to event listener on input button - COMPLETE.
+      //ToDo - prevent validation message from showing more than once
+
       function setBodyAttr(attr, value){
         if (document.body) eval('document.body.'+attr+'="'+value+'"');
         else notSupported();
       }
+
       function sayHello(name){
         let elementExists = document.getElementById("welcome-text");
         let welcomeMsg = document.getElementById('welcome-message');
@@ -37,9 +42,9 @@
           welcomeMsgText.innerHTML = 'Hi there ' + name;
           welcomeMsg.appendChild(welcomeMsgText);
         } else {
-          let validationMsg = document.createElement('p');
-          validationMsg.innerHTML = 'I\'ve already greeted you once.';
-          welcomeMsg.appendChild(validationMsg);
+            let validationMsg = document.createElement('p');
+            validationMsg.innerHTML = 'I\'ve already greeted you once.';
+            welcomeMsg.appendChild(validationMsg);
         }
       }
 
@@ -51,6 +56,11 @@
       let bgColor = document.getElementById("bg-color");
       bgColor.addEventListener("change", function(){
         setBodyAttr('bgColor', this.options[this.selectedIndex].value);
+      });
+
+      let inputButton = document.getElementById("input-button");
+      inputButton.addEventListener("click", function(){
+        sayHello('Rob');
       });
 
     </script>
