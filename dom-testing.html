@@ -42,10 +42,17 @@
           welcomeMsgText.innerHTML = 'Hi there ' + name;
           welcomeMsg.appendChild(welcomeMsgText);
         } else {
-            let validationMsg = document.createElement('p');
-            validationMsg.innerHTML = 'I\'ve already greeted you once.';
-            welcomeMsg.appendChild(validationMsg);
+           validation(welcomeMsg);
         }
+      }
+
+      function validation(msg) {
+         if(!document.getElementById("greeted")) {
+            let validationMsg = document.createElement('p');
+            validationMsg.id = "greeted";
+            validationMsg.innerHTML = 'I\'ve already greeted you once.';
+            msg.appendChild(validationMsg);
+          }
       }
 
       let textColor = document.getElementById("text-color");
